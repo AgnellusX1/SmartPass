@@ -1,0 +1,5 @@
+_________________________________________TODO_________________________________________________________
+### Deadline 9th March 2020 (Monday)[Preprocessing]
+1. Generate Sub Datasets based of Regex Seperation Rules
+2. Prepare a a new dataset from the Sub Datasets, with the Complexity appended to each Password
+3. Calculate the Mean and Standard derivation

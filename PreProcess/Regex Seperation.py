@@ -1,19 +1,30 @@
 import re
 from progress.bar import Bar
+
 # Progress Bar
 bar = Bar('Processing', max=20)
 
-dataset = open (r"Dataset/rockyou", "r",encoding='latin-1')
-# Regex Statements
+dataset = open(r"Datasets/xato.txt", "r", encoding='latin-1')
+# ADD the Regex Statements here Regex Statements
 '''
+
+    Only character Lowercase
+    Only Numbers
+    Only Characters (Upper Case + Lower Case)
+    Starting with Numbers containing Special characters
+    Staring with Characters containing Numbers
+    
+    NOTE: Change the File Name Each time
+    
 '''
-pattern = '[!@#$%^&*(),.?":{}|<>]'
-file_num = open ("Dataset/specialChar", "w",encoding='latin-1')
-for i in dataset:
-    x = re.search (pattern, i)
+pattern = "[A-Z]"
+file_num = open("Datasets/Processed/lower", "w", encoding='latin-1')
+l = dataset.readlines()
+for i in l:
+    x = re.search(pattern, i)
     if x:
-        print ("Adding " + x.string)
-        file_num.write (x.string)
+        print("Adding " + x.string)
+        file_num.write(x.string)
         bar.next()
 bar.finish()
-file_num.close ()
+file_num.close()
