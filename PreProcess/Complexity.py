@@ -1,9 +1,9 @@
 import csv
 from password_strength import PasswordStats
-dataset = open(r"Dataset/rockyou", "r", encoding='latin-1')
-new_dataset = open("Dataset/Complexity3", "w", encoding='latin-1', newline='')
-write = csv.writer(new_dataset,delimiter=',', quotechar='|', quoting=3)
-write.writerow(["Password", "Complexity"])
+dataset = open(r"Datasets/xatoBig.txt", "r", encoding='latin-1')
+new_dataset = open("Datasets/Processed/length", "w", encoding='latin-1', newline='')
+write = csv.writer(new_dataset)
+write.writerow(["Password", "Complexity", "Length", "Code"])
 for i in dataset:
     stats = PasswordStats(i)
     i=i.replace("\n", "")
@@ -17,5 +17,5 @@ for i in dataset:
         x=3
     val = i + "," + str(stats.strength()) + ","+str(x)+","
     print(val)
-    write.writerow([i, x])
+    write.writerow([i, stats.strength(), len(i), x])
 new_dataset.close()
