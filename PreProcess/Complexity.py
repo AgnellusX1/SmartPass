@@ -1,7 +1,7 @@
 import csv
 from password_strength import PasswordStats
 dataset = open(r"Datasets/xatoBig.txt", "r", encoding='latin-1')
-new_dataset = open("Datasets/Processed/length", "w", encoding='latin-1', newline='')
+new_dataset = open("Datasets/Processed/length.txt", "w", encoding='latin-1', newline='')
 write = csv.writer(new_dataset)
 write.writerow(["Password", "Complexity", "Length", "Code"])
 for i in dataset:
