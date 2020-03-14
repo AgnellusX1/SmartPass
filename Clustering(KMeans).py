@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # import Datasets
-dataset = pd.read_csv("PreProcess/Datasets/Processed/length")
+dataset = pd.read_csv("PreProcess/Datasets/Processed/length.txt")
 print(dataset)
 x = dataset.iloc[:, [2, 1]].values
 
@@ -33,12 +33,12 @@ y_kmeans = kmeans.fit_predict(x)
 print(y_kmeans)
 
 # Visualising the clusters
-plt.scatter(x[y_kmeans == 0, 0], x[y_kmeans == 0, 1], s=100, c='red', label='Careful')
-plt.scatter(x[y_kmeans == 1, 0], x[y_kmeans == 1, 1], s=100, c='blue', label='Standard')
-plt.scatter(x[y_kmeans == 2, 0], x[y_kmeans == 2, 1], s=100, c='green', label='Target')
-plt.scatter(kmeans.cluster_centers_[:, 1], kmeans.cluster_centers_[:, 1], s=300, c='yellow', label='Centroids')
-plt.title('Cluster of Clients')
-plt.xlabel('Annual Income (K$)')
-plt.ylabel('Spending Score (1-100)')
+plt.scatter(x[y_kmeans == 0, 0], x[y_kmeans == 0, 1], s=100, c='red', label='Very Weak')
+plt.scatter(x[y_kmeans == 1, 0], x[y_kmeans == 1, 1], s=100, c='blue', label='Good')
+plt.scatter(x[y_kmeans == 2, 0], x[y_kmeans == 2, 1], s=100, c='green', label='Medium')
+plt.scatter(x[y_kmeans == 3, 0], x[y_kmeans == 3, 1], s=100, c='yellow', label='Great')
+plt.scatter(kmeans.cluster_centers_[:, 1], kmeans.cluster_centers_[:, 1], s=300, c='black', label='Centroids')
+plt.ylabel('Complexity')
+plt.xlabel('Length of Passwords')
 plt.legend()
 plt.show()
