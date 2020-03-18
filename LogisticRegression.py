@@ -42,7 +42,7 @@ y_pred = classifier.predict(X_test)
 #evaluating the model performance
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test,y_pred)
-# print("Confusion ",cm)
+print("Confusion ",cm)
 
 
 breached=dataset.loc[y==1]
