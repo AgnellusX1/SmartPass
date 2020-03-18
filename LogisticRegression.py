@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot  as plt
 import csv
-
+import seaborn as sns
 dataset = pd.read_csv(r"PreProcess/Datasets/Logistic/exp.txt")
 print(dataset)
 X=dataset.iloc[:,1].values
@@ -42,11 +42,18 @@ y_pred = classifier.predict(X_test)
 #evaluating the model performance
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test,y_pred)
-# print("Confusion ",cm)
-
-
+print("Confusion ",cm)
+plt.scatter(X,y,color='red')
+plt.xlabel("Complexity")
+plt.ylabel("breached/unbreached")
+#sns.regplot(x="Complexity",y="Breached", data=dataset, logistic=True,n_boot=500,y_jitter=0.3)
+#loss = expit(X_test * classifier.coef_ + classifier.intercept_).ravel()
+#plt.plot(X_test, loss, color='black', linewidth=1)
+plt.show()
+'''
 breached=dataset.loc[y==1]
 unbreached=dataset.loc[y==0]
+print("breached")
 print(breached.iloc[:,0])
 print(breached.iloc[:,1])
 print("Unbreached")
@@ -56,7 +63,7 @@ plt.scatter(breached.iloc[:,0] , breached.iloc[:,1],s=15,label='breached')
 plt.scatter(unbreached.iloc[:,0] , unbreached.iloc[:,1],s=15,label='unbreached')
 plt.legend()
 plt.show()
-
+'''
 '''
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
