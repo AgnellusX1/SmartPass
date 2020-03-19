@@ -38,11 +38,15 @@ y_pred = classifier.predict(X_test)
 
 # making the confusion matrix
 #evaluating the model performance
-from sklearn.metrics import confusion_matrix,accuracy_score
+from sklearn.metrics import confusion_matrix,accuracy_score,classification_report
 cm = confusion_matrix(y_test,y_pred)
 print("Confusion ",cm)
 ac=accuracy_score(y_test, y_pred)
 print("Accuracy:",ac)
+print(classification_report(y_test, y_pred))
+
+
+
 plt.scatter(X,y,color='red')
 plt.xlabel("Complexity")
 plt.ylabel("breached/unbreached")
