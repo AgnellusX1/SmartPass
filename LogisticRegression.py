@@ -3,21 +3,20 @@ import numpy as np
 import matplotlib.pyplot  as plt
 import csv
 import seaborn as sns
+
 dataset = pd.read_csv(r"PreProcess/Datasets/Logistic/exp.txt")
 print(dataset)
 X=dataset.iloc[:,1].values
 y=dataset.iloc[:,3].values
-
-
 print("Complexity",X)
 print("Breached",y)
+
 #Splitting the data set into Training and Test set
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=1/3, random_state=0)
 X_train = X_train.reshape(-1, 1)
 y_train = y_train.ravel()
 X_test=X_test.reshape(-1,1)
-
 print("X TRAIN",X_train)
 print("X TEST",X_test)
 print("Y TRAIN",y_train)
@@ -37,12 +36,13 @@ classifier.fit(X_train, y_train)
 # Predicting Test Set Results
 y_pred = classifier.predict(X_test)
 
-
 # making the confusion matrix
 #evaluating the model performance
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix,accuracy_score
 cm = confusion_matrix(y_test,y_pred)
 print("Confusion ",cm)
+ac=accuracy_score(y_test, y_pred)
+print("Accuracy:",ac)
 plt.scatter(X,y,color='red')
 plt.xlabel("Complexity")
 plt.ylabel("breached/unbreached")
@@ -50,6 +50,7 @@ plt.ylabel("breached/unbreached")
 #loss = expit(X_test * classifier.coef_ + classifier.intercept_).ravel()
 #plt.plot(X_test, loss, color='black', linewidth=1)
 plt.show()
+
 '''
 breached=dataset.loc[y==1]
 unbreached=dataset.loc[y==0]
