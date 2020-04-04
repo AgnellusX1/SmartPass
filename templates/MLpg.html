@@ -6,16 +6,14 @@
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet'
 		type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/cssfile.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='cssfile.css') }}" />
 	<!--<script src="{{ url_for('static', filename='js/passwword.js') }}"></script>-->
     <script src="{{ url_for('static', filename='Clustering(KMeans).py') }}"></script>
 </head>
 <body>
 
 	<div id="content">
-		<form id="register" action ="yoyo.py" method = "POST">
-		<p><a href = "#">Click me</a></p>
-
+		<form id="register" method = "POST">
 			<body>
 				<div id="login-box">
 					<div class="left-box">
@@ -26,7 +24,7 @@
 							<input name="password" id="password" type="password" placeholder="Password ">&nbsp;&nbsp;
 							<span id="result"></span>
 							<p id="password-strength-text"></p>
-							<input type="submit" name="signup-button" value="Sign Up">
+							<input type="submit" name="signup-button" value="submit">
 						</form>
 					</div>
 					<div class="right-box">
