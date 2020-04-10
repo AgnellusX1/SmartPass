@@ -7,7 +7,6 @@ app = Flask(__name__)
 def hello():
     return render_template("class.html")
 
-
 @app.route("/", methods=["GET","POST"])
 def get_data():
     if request.method == "POST":
@@ -46,13 +45,12 @@ def get_data():
         y_pred = classifier.predict(X_test)
         f=y_pred[0]
         if(f==1):
-
-                return "It can be breached"
+            output = "breached"
 
         else:
 
-            return "It is safe"
-
+            output = " complex"
+        return render_template('class.html', prediction_text='Password can be {}'.format(output))
 
 
 if __name__ == '__main__':
