@@ -49,6 +49,7 @@ def passrun():
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import pickle
 
 # import Datasets
 dataset = pd.read_csv("PreProcess/Datasets/Processed/length.txt")
@@ -74,6 +75,7 @@ from sklearn.cluster import KMeans
 # Applying K-Means to the Dataset
 kmeans = KMeans(n_clusters=4, init='k-means++', max_iter=300, n_init=10, random_state=0)
 kmeans.fit(x)
+pickle.dump(kmeans, open("model1.pkl", 'wb'))
 y_kmeans = kmeans.fit_predict(x)
 # print(y_kmeans)
 # print(kmeans.labels_)
