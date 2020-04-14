@@ -1,19 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
     <meta charset="UTF-8">
-    <title>Logistic</title>
+    <title>ML Project</title>
+    <style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2.5em 2em 0em;
+    background: #f5f7f9;
+        font-size: 1.5em;
+        color: #346;
+        font-family: Signika, -apple-system, sans-serif;
+}
+
+section {
+    margin: 0em auto 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+input {
+    display: block;
+    margin: .5em auto 0em;
+    padding: 0.5em 1em 0.5em 0.7em;
+    width: 100%;
+    border: none;
+    background: rgba(0,0,0,0.05);
+    color: rgba(0,0,0,0.8);
+    font-size: 2em;
+    line-height: 0;
+        transition: all .5s linear;
+}
+
+input:hover, input:focus {
+    outline: 0;
+    transition: all .5s linear;
+    box-shadow: inset 0px 0px 10px #ccc;
+}
+
+meter {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+
+    margin: 0 auto 1em;
+    width: 100%;
+    height: .5em;
+
+    /* Applicable only to Firefox */
+    background: none;
+    background-color: rgba(0,0,0,0.1);
+}
+
+meter::-webkit-meter-bar {
+    background: none;
+    background-color: rgba(0,0,0,0.1);
+}
+
+meter[value="1"]::-webkit-meter-optimum-value { background: red; }
+meter[value="2"]::-webkit-meter-optimum-value { background: yellow; }
+meter[value="3"]::-webkit-meter-optimum-value { background: orange; }
+meter[value="4"]::-webkit-meter-optimum-value { background: green; }
+
+meter[value="1"]::-moz-meter-bar { background: red; }
+meter[value="2"]::-moz-meter-bar { background: yellow; }
+meter[value="3"]::-moz-meter-bar { background: orange; }
+meter[value="4"]::-moz-meter-bar { background: green; }
+.feedback {
+    color: #9ab;
+    font-size: 90%;
+    padding: 0 .25em;
+    font-family: Courgette, cursive;
+    margin-top: 1em;
+}
+
+
+    </style>
 </head>
 <body>
 <form method="POST">
+    <div class="container">
+        <label for="password">Enter Password</label>
+        <input name="password" type="password" id="password">
+        <meter max="4" id="password-strength"></meter>
+        <p id="password-strength-text"></p>
+        <script type="text/javascript">
+           var strength = {
+              0: "Weakest",
+              1: "Weak",
+              2: "OK",
+              3: "Good",
+              4: "Strong"
+            }
 
 
 
+            var password = document.getElementById('password');
+            var meter = document.getElementById('password-strength');
+            var text = document.getElementById('password-strength-text');
 
-    <input type="text" name="password" placeholder="Password" id="password" />
+            password.addEventListener('input', function() {
+                var val = password.value;
+                var result = zxcvbn(val);
 
-    <input type="submit" name="submit" value="submit" />
+                // This updates the password strength meter
+                meter.value = result.score;
+
+                // This updates the password meter text
+                if (val !== "") {
+                    text.innerHTML = "Password Strength: " + strength[result.score];
+                } else {
+                    text.innerHTML = "";
+                }
+            });
+        </script>
+    </div>
+
 </form>
+
 <div><center>{{ prediction_text }}</center></div>
 </body>
 </html>

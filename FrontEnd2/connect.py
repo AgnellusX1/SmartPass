@@ -45,12 +45,12 @@ def get_data():
         y_pred = classifier.predict(X_test)
         f=y_pred[0]
         if(f==1):
-            output = "breached"
+            output = "Breached"
 
         else:
 
-            output = " complex"
-        return render_template('class.html', prediction_text='Password can be {}'.format(output))
+            output = "Unbreached"
+        return render_template('class.html', prediction_text='Password is {}'.format(output))
 
 
 if __name__ == '__main__':
