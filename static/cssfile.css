@@ -118,6 +118,15 @@ input[type="submit"]:focus
 	text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
+.right-box .result
+{
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    text-align: center;
+    margin-bottom: 20px
+}
+
+
 button.social
 {
 	margin-bottom: 20px;
@@ -132,10 +141,6 @@ button.social
 	transition: 0.2s ease;
 }
 
-.facebook
-{
-	background: #32508e;
-}
 
 .twitter
 {
