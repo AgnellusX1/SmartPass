@@ -120,10 +120,10 @@ input[type="submit"]:focus
 
 .right-box .result
 {
+    display: block;
     color: #ffffff;
     text-shadow: 0 2px 4px rgba(0,0,0,0.6);
     text-align: center;
-    margin-bottom: 20px
 }
 
 

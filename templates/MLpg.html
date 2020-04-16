@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Password strength checker in jQuery</title>
+	<title>Password strength checker</title>
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet'
 		type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -17,13 +17,14 @@
 						<h1>Sign Up</h1>
 							<input type="text" placeholder="Username" id="username" name="Username" value="">
 							<input type="text" placeholder="email" name="email" value="">
-							<input name="password" id="password" type="password" placeholder="Password">&nbsp;&nbsp;
+							<input name="password" id="password" type="password" placeholder="Password">
 <!--							<div><center>{{ password_res }}</center></div>-->
 							<input type="submit" name="signup-button" value="submit">
 					</div>
 					<div class="right-box">
 						<span class="signwith">Checking<br />Password Strength</span>
 						<span class="result" id="result"><center>{{ password_res }}</center></span>
+						<br>
 <!--						<button class="social twitter">Login with Twitter</button>-->
 <!--						<button class="social google">Login with Google</button>-->
 					</div>
@@ -32,5 +33,4 @@
 <!--		</form>-->
 	</div>
 </body>
-
 </html>
