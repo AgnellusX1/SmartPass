@@ -7,22 +7,19 @@
 		type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="{{ url_for('static', filename='cssfile.css') }}" />
-	<!--<script src="{{ url_for('static', filename='js/passwword.js') }}"></script>-->
-    <script src="{{ url_for('static', filename='passwword.js') }}"></script>
+    <script src="{{ url_for('static', filename='password.js') }}"></script>
 </head>
 <body>
 	<div id="content">
-		<form id="register" method = "POST">
+<!--		<form id="register" method = "POST">-->
 				<div id="login-box">
 					<div class="left-box">
 						<h1>Sign Up</h1>
-						<form action="" , method="POST">
-							<input type="text" placeholder="Username" name="Username" value="">
+							<input type="text" placeholder="Username" id="username" name="Username" value="">
 							<input type="text" placeholder="email" name="email" value="">
-							<input name="password" id="password" type="password" placeholder="Password ">&nbsp;&nbsp;
+							<input name="password" id="password" type="password" placeholder="Password">&nbsp;&nbsp;
 <!--							<div><center>{{ password_res }}</center></div>-->
 							<input type="submit" name="signup-button" value="submit">
-						</form>
 					</div>
 					<div class="right-box">
 						<span class="signwith">Checking<br />Password Strength</span>
@@ -32,7 +29,7 @@
 					</div>
 					<div class="or">+</div>
 				</div>
-		</form>
+<!--		</form>-->
 	</div>
 </body>
 
