@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pickle
 import matplotlib.pyplot as plt
 
@@ -39,7 +39,8 @@ def clus():
         # print(low)
         # print("Your Password Belong to the Category of")
         # print(clus_names[low])
-        return clus_names[low]
+        return render_template('MLpg.html', password_res=clus_names[low])
+        # return clus_names[low]
 
         # Visualising the clusters
         # plt.scatter(x[y_kmeans == 0, 0], x[y_kmeans == 0, 1], s=100, c='red', label='Very Weak')
