@@ -14,5 +14,9 @@ $(document).ready(function () {
 
 
         event.preventDefault();
+
+        if(document.getElementById("username").value == document.getElementById("password").value){
+                alert("Warning: Do Not Use Username as Password")
+                }
     });
 });
