@@ -32,7 +32,7 @@ def clus():
             distances.append(d)
 
         # print(distances)
-        clus_names = ['Very Week', 'Good', 'Week', 'Best']
+        clus_names = ['Poor', 'Good', 'Average', 'Excellent']
         low = distances.index(min(distances))
         target_cluster = kmeans.cluster_centers_[low]
         result = clus_names[low]
