@@ -126,6 +126,13 @@ input[type="submit"]:focus
     text-align: center;
 }
 
+.right-box .resulthead
+{
+    display: block;
+    colour: #000000;
+    text-align: center;
+}
+
 
 button.social
 {
