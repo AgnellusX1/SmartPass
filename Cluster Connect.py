@@ -10,7 +10,7 @@ def index():
     return render_template('MLpg.html')
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["POST"])
 def clus():
     with open('model1.pkl', 'rb') as f:
         kmeans = pickle.load(f)
@@ -32,14 +32,16 @@ def clus():
             distances.append(d)
 
         # print(distances)
-        clus_names = ['Very Week', 'Good', 'Week', 'Best']
+        clus_names = ['Weakest', 'Good', 'Weak', 'Strong']
         low = distances.index(min(distances))
         target_cluster = kmeans.cluster_centers_[low]
+        result = clus_names[low]
+        return jsonify({"pw": result})
         # print(target_cluster)
         # print(low)
         # print("Your Password Belong to the Category of")
         # print(clus_names[low])
-        return render_template('MLpg.html', password_res=clus_names[low])
+        # return render_template('MLpg.html', password_res=clus_names[low])
         # return clus_names[low]
 
         # Visualising the clusters

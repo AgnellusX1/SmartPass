@@ -1,50 +1,40 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
 <head>
-	<title>Password strength checker in jQuery</title>
+	<title>Password strength checker</title>
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet'
 		type='text/css'>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="{{ url_for('static', filename='cssfile.css') }}" />
-	<!--<script src="{{ url_for('static', filename='js/passwword.js') }}"></script>-->
-    <script src="{{ url_for('static', filename='Clustering(KMeans).py') }}"></script>
+    <script src="{{ url_for('static', filename='password.js') }}"></script>
 </head>
 <body>
-
 	<div id="content">
-		<form id="register" method = "POST">
-			<body>
+<!--		<form id="register" method = "POST">-->
 				<div id="login-box">
 					<div class="left-box">
 						<h1>Sign Up</h1>
-						<form action="" , method="POST">
-							<input type="text" placeholder="Username" name="Username" value="">
+							<input type="text" placeholder="Username" id="username" name="Username" value="">
 							<input type="text" placeholder="email" name="email" value="">
-							<input name="password" id="password" type="password" placeholder="Password ">&nbsp;&nbsp;
-							<span id="result"></span>
-
-
-							<div><center>{{ password_res }}</center></div>
-
-
+							<input name="password" id="password" type="password" placeholder="Password">
+<!--							<div><center>{{ password_res }}</center></div>-->
 							<input type="submit" name="signup-button" value="submit">
-						</form>
 					</div>
 					<div class="right-box">
-						<span class="signwith">Sign-in with<br />Social Network</span>
-						<button class="social facebook">Login with Facebook</button>
-						<button class="social twitter">Login with Twitter</button>
-						<button class="social google">Login with Google</button>
+						<span class="signwith">Checking<br />Password Strength</span>
+						<span class="resulthead"><center>Generic Strength</center></span>
+						<span class="result" id="generic"><center></center></span>
+						<span class="resulthead"> <center>Smart Strength</center></span>
+						<span class="result" id="result"><center>{{ password_res }}</center></span>
+						<br>
+<!--						<button class="social twitter">Login with Twitter</button>-->
+<!--						<button class="social google">Login with Google</button>-->
 					</div>
-					<div class="or">OR</div>
-
+					<div class="or">+</div>
 				</div>
-			</body>
-
-
-		</form>
+<!--		</form>-->
 	</div>
 </body>
-
 </html>
