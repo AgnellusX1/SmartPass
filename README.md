@@ -38,14 +38,13 @@ Our objective was to study these passwords and isolate attributes that play an i
 
 1.Clustering Based
 
-![](Screenshots/DeliveryBoyLogin.jpeg)
-
+![](ScreenShots/Clustering.png)
 
 ***
 
 2.Regression Based
 
-![](Screenshots/DeliveryBoyLogin.jpeg)
+![](ScreenShots/Regression.png)
 
 ***
 
