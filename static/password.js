@@ -11,16 +11,12 @@ var password=document.getElementById('password')
                 $('#result').text(data.pw).show();
                 return data.pw
             }
-
         });
-
-
 
         event.preventDefault();
 
         var val=password.value
         var generic_result=zxcvbn(val)
-
         var strength = {
               0: "Weakest",
               1: "Weak",
@@ -36,12 +32,9 @@ var password=document.getElementById('password')
             resultnew.innerHTML = "";
         }
 
-
         if(document.getElementById("username").value == document.getElementById("password").value){
                 alert("Warning: Do Not Use Username as Password")
                 }
-
-
     });
 
 });

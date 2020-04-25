@@ -7,25 +7,19 @@ app = Flask(__name__)
 def hello():
     return render_template("class.html")
 
-@app.route("/", methods=["GET","POST"])
+
+@app.route("/", methods=["GET", "POST"])
 def get_data():
     if request.method == "POST":
-        X_pass= request.form["password"]
+        X_pass = request.form["password"]
         import pandas as pd
-        import numpy as np
-        import matplotlib.pyplot  as plt
-        import csv
-        import seaborn as sns
         from password_strength import PasswordStats
         dataset = pd.read_csv(r"exp.txt")
-        #print(dataset)
         X = dataset.iloc[:, 1].values
         y = dataset.iloc[:, 3].values
-        #print("Complexity", X)
-        #print("Breached", y)
         stats = PasswordStats(X_pass)
         X_test = [[stats.strength()]]
-        #print(X_test)
+
         # Splitting the data set into Training and Test set
         X_train = X.reshape(-1, 1)
         y_train = y.ravel()
@@ -43,8 +37,8 @@ def get_data():
 
         # Predicting Test Set Results
         y_pred = classifier.predict(X_test)
-        f=y_pred[0]
-        if(f==1):
+        f = y_pred[0]
+        if f == 1:
             output = " breached category try another password"
 
         else:

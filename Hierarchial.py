@@ -11,7 +11,8 @@ print(x)
 
 # # Using the Dendogram to find the Number of Clusters
 import scipy.cluster.hierarchy as sch
-dendogram=sch.dendrogram(sch.linkage(x,method='ward'))
+
+dendogram = sch.dendrogram(sch.linkage(x, method='ward'))
 plt.title("Dendogram")
 plt.xlabel("Passwords")
 plt.ylabel("Euclidean Distances")
@@ -19,8 +20,9 @@ plt.show()
 
 # Fitting Clustering to Dataset
 from sklearn.cluster import AgglomerativeClustering
-hc=AgglomerativeClustering(n_clusters=4,affinity='euclidean',linkage='ward')
-y_hc=hc.fit_predict(x)
+
+hc = AgglomerativeClustering(n_clusters=4, affinity='euclidean', linkage='ward')
+y_hc = hc.fit_predict(x)
 
 # # Visualising the Clusters
 plt.scatter(x[y_hc == 0, 0], x[y_hc == 0, 1], s=100, c='red', label='Strong')
